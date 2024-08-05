@@ -1,0 +1,29 @@
+name: Deploy to DigitalOcean
+
+on:
+  push:
+    branches:
+      - main  # Change to your default branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get install -y libgl1-mesa-glx
+          pip install -r requirements.txt
+
+      - name: Deploy to DigitalOcean
+        run: |
+          # Add your deployment commands here
+          # For example, using DigitalOcean CLI or another deployment method
