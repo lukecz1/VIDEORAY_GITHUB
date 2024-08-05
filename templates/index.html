@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VideoRay Part Detector</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="text/css" href='styles.css'>
 </head>
 
 <body>
     <!-- ---------------------------------------Header---------------------------------------------------- -->
     <header>
         <div class="logo-container">
-            <img src="{{ url_for('static', filename='darklogo.webp') }}" alt="VideoRay Logo">
+            <img src='darklogo.webp' alt="VideoRay Logo">
         </div>
         <h1>VideoRay Part Detector</h1>
         <!-- Nav Bar Tabs -->
@@ -40,7 +40,7 @@
         <section id="what-we-do" class="section what-we-do">
             <h3>What is VideoRay?</h3>
             <div class="teaser-image">
-                <img src="{{ url_for('static', filename='defenderpic.jpg') }}" alt="VideoRay Defender">
+                <img src='OD_teaser.png' alt="Object Detection Teaser">
             </div>
             <p>VideoRay is a leading provider of advanced underwater remotely operated vehicles (ROVs)...</p>
         </section>
@@ -49,7 +49,7 @@
         <section id="object-detection" class="section object-detection-description">
             <h3>Object Detection and Automation</h3>
             <div class="teaser-image">
-                <img src="{{ url_for('static', filename='OD_teaser.png') }}" alt="Object Detection Teaser">
+                <img src='OD_teaser.png' alt="Object Detection Teaser">
             </div>
             <p>At VideoRay, we harness cutting-edge object detection technology to revolutionize underwater inspections and maintenance...</p>
         </section>
@@ -115,7 +115,7 @@
     <div class="webcam-container">
         <!-- Webcam Feed -->
         <div class="webcam-feed-container">
-            <img id="dark-logo" src="{{ url_for('static', filename='darklogo.webp') }}" alt="VideoRay Logo" class="dark-logo">
+            <img id="dark-logo" src='darklogo.webp' alt="VideoRay Logo" class="dark-logo">
             <video id="webcam-feed" style="display: none;" autoplay></video>
             <img id="webcam-feed" src="#" alt="Webcam Feed">
         </div>
@@ -158,7 +158,7 @@
     <footer id="contact">
         <div class="header-content">
             <div class="logo-container">
-                <img src="static/vrlogo.png" alt="Error opening picture">
+                <img src="vrlogo.png" alt="Error opening picture">
             </div>
 
             <div class="signature-container">
@@ -185,7 +185,7 @@
 
     </footer>
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src='script.js'></script>
 
     </body>
 
