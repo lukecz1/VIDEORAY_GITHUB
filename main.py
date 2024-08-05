@@ -8,26 +8,9 @@ from ultralytics import YOLO
 import numpy as np
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = 'uploads'
 
-# Set paths relative to the application directory
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-app.config['UPLOAD_FOLDER'] = os.path.join(BASE_DIR, 'uploads')
-MODEL_WEIGHTS_PATH = os.path.join(BASE_DIR, 'weights', 'best.pt')
-WEIGHTS_URL = 'https://your-s3-bucket.s3.amazonaws.com/weights/model.pt'
-
-# Ensure weights directory exists
-if not os.path.exists(os.path.dirname(MODEL_WEIGHTS_PATH)):
-    os.makedirs(os.path.dirname(MODEL_WEIGHTS_PATH))
-
-# Download weights if they don't exist
-if not os.path.isfile(MODEL_WEIGHTS_PATH):
-    print("Model weights not found. Downloading...")
-    response = requests.get(WEIGHTS_URL)
-    with open(MODEL_WEIGHTS_PATH, 'wb') as f:
-        f.write(response.content)
-    print("Model weights downloaded.")
-
-model = YOLO(MODEL_WEIGHTS_PATH)
+model = YOLO('best.pt')
 
 # Designate Class names to a color (RGB decimal value)
 class_colors = {
@@ -155,9 +138,9 @@ def terminate_webcam():
     terminate_webcam_flag = True
     return jsonify({'message': 'Webcam processing terminated'})
 
-def open_browser():
-    if not os.environ.get("WERKZEUG_RUN_MAIN"):
-        webbrowser.open_new('http://127.0.0.1:5000/')
+# def open_browser():
+#     if not os.environ.get("WERKZEUG_RUN_MAIN"):
+#         webbrowser.open_new('http://127.0.0.1:5000/')
 
 
 if __name__ == '__main__':
